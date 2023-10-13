@@ -115,7 +115,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["index_files/anchor-4.2.2/anchor.min.js","index_files/bowser-1.9.3/bowser.min.js","index_files/distill-2.2.21/template.v2.js","index_files/header-attrs-2.17/header-attrs.js","index_files/jquery-3.6.0/jquery-3.6.0.js","index_files/jquery-3.6.0/jquery-3.6.0.min.js","index_files/jquery-3.6.0/jquery-3.6.0.min.map","index_files/popper-2.6.0/popper.min.js","index_files/tippy-6.2.7/tippy-bundle.umd.min.js","index_files/tippy-6.2.7/tippy-light-border.css","index_files/tippy-6.2.7/tippy.css","index_files/tippy-6.2.7/tippy.umd.min.js","index_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["index_files/anchor-4.2.2/anchor.min.js","index_files/bowser-1.9.3/bowser.min.js","index_files/distill-2.2.21/template.v2.js","index_files/header-attrs-2.17/header-attrs.js","index_files/header-attrs-2.24/header-attrs.js","index_files/jquery-3.6.0/jquery-3.6.0.js","index_files/jquery-3.6.0/jquery-3.6.0.min.js","index_files/jquery-3.6.0/jquery-3.6.0.min.map","index_files/popper-2.6.0/popper.min.js","index_files/tippy-6.2.7/tippy-bundle.umd.min.js","index_files/tippy-6.2.7/tippy-light-border.css","index_files/tippy-6.2.7/tippy.css","index_files/tippy-6.2.7/tippy.umd.min.js","index_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -1517,9 +1517,333 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </div>
 
 <div class="d-article">
-<h2 id="project-thoughts">Project thoughts</h2>
-<p>I am interested in exploring data related to baseball. I want to determine the impact of notable individuals’ hitting stats on their team’s overall performance. I will be observing the effects of this starting from after the steroid era, in 2005.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<h2 id="project-proposal">Project Proposal</h2>
+<p>How is teams’ performance overall (win record, making it to the playoffs, winning the world series) affected by players with the highest WAR in their league in a particular year?
+I hypothesize that players with the highest WAR in their league do not notably affect the success of their team. This is because of the way baseball is structured, where batters are 1 of 9 different players impacting a team, and pitchers are 1 of 5. Overall, players who have higher WAR may contribute to a small amount of their team’s success, but in the majority of games in a 162 game season, they can only contribute to so many runs/innings. In other words, there are far too many other individual efforts that help a team win, that relying on a single player’s WAR value alone is unreasonable.
+The current variable of interest is WAR, which is short for Wins Above Replacement. In baseball statistics, WAR is used to determine a player’s individual value as compared to a player who would consistently play in the minor leagues (ie there is a large gap in skill between the players with the highest WAR and those that they are replacing). WAR is calculated in several different ways, and I have not determined yet how I am going to calculate it for this project (several individual statistics, including Batting Runs, Fielding positioning, and replacement runs, among other things, are often included in the calculation).
+The success of a team will be measured in two ways. A team’s overall record (and positioning in the league-wide standings) will be compared to comparable teams’ records, and more importantly, the other team in MLB with a player who led in WAR for that season. In addition, a team’s success in the playoffs, combined with whether or not they won the World Series, will be another way to determine how important having a player with a high WAR is.
+If teams that have players with high WAR fail to reach the playoffs, or only manage to enter through the wildcard, this will be a strong indication of how little effect these players have. In addition, their success in the postseason, potentially analyzed in tandem with the players’ postseason WAR, may further indicate the actual impact that these highly skilled individuals actually have.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span></span>
+<span><span class='va'>Yearly_WAR_Leaders</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.csv</a></span><span class='op'>(</span><span class='st'>"~/Downloads/Untitled spreadsheet - Sheet1.csv"</span><span class='op'>)</span></span>
+<span><span class='va'>Yearly_WAR_Leaders</span> <span class='op'>&lt;-</span> <span class='va'>Yearly_WAR_Leaders</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>Year</span><span class='op'>:</span><span class='va'>WAR</span>, <span class='va'>American.League</span><span class='op'>:</span><span class='va'>WAR.1</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='va'>Yearly_WAR_Leaders</span></span></code></pre>
+</div>
+<pre><code>               Year          National.League  WAR
+1      2023 (NL AL)       Mookie Betts (LAD)  8.4
+2      2022 (NL AL)      Nolan Arenado (STL)  7.9
+3      2021 (NL AL)       Zack Wheeler (PHI)  7.7
+4      2020 (NL AL)       Mookie Betts (LAD)  3.6
+5      2019 (NL AL)     Cody Bellinger (LAD)  8.6
+6      2018 (NL AL)       Jacob deGrom (NYM)  9.9
+7      2017 (NL AL)         Joey Votto (CIN)  8.1
+8      2016 (NL AL)        Kris Bryant (CHC)  7.3
+9      2015 (NL AL)       Bryce Harper (WSN)  9.7
+10     2014 (NL AL)    Clayton Kershaw (LAD)  8.2
+11     2013 (NL AL)    Clayton Kershaw (LAD)  8.6
+12     2012 (NL AL)       Buster Posey (SFG)  7.6
+13     2011 (NL AL)          Cliff Lee (PHI)  9.0
+14     2010 (NL AL)      Roy Halladay+ (PHI)  8.3
+15     2009 (NL AL)      Albert Pujols (STL)  9.7
+16     2008 (NL AL)      Albert Pujols (STL)  9.2
+17     2007 (NL AL)      Albert Pujols (STL)  8.7
+18     2006 (NL AL)      Albert Pujols (STL)  8.5
+19     2005 (NL AL)      Albert Pujols (STL)  8.4
+20     2004 (NL AL)        Barry Bonds (SFG) 10.6
+21     2003 (NL AL)        Barry Bonds (SFG)  9.2
+22     2002 (NL AL)        Barry Bonds (SFG) 11.7
+23     2001 (NL AL)        Barry Bonds (SFG) 11.9
+24     2000 (NL AL)        Todd Helton (COL)  8.9
+25     1999 (NL AL)     Randy Johnson+ (ARI)  8.6
+26     1998 (NL AL)        Kevin Brown (SDP)  9.1
+27     1997 (NL AL)      Larry Walker+ (COL)  9.8
+28     1996 (NL AL)        Barry Bonds (SFG)  9.7
+29     1995 (NL AL)       Greg Maddux+ (ATL)  9.6
+30     1994 (NL AL)       Greg Maddux+ (ATL)  8.7
+31     1993 (NL AL)          Jose Rijo (CIN) 10.1
+32     1992 (NL AL)       Greg Maddux+ (CHC)  9.4
+33     1991 (NL AL)       Tom Glavine+ (ATL)  9.2
+34     1990 (NL AL)        Barry Bonds (PIT)  9.7
+35     1989 (NL AL)       Lonnie Smith (ATL)  8.8
+36     1988 (NL AL)     Orel Hershiser (LAD)  7.1
+37     1987 (NL AL)        Tony Gwynn+ (SDP)  8.6
+38     1986 (NL AL)         Mike Scott (HOU)  8.2
+39     1985 (NL AL)      Dwight Gooden (NYM) 13.3
+40     1984 (NL AL)     Ryne Sandberg+ (CHC)  8.6
+41     1983 (NL AL)         John Denny (PHI)  7.5
+42     1982 (NL AL)       Gary Carter+ (MON)  8.6
+43     1981 (NL AL)      Mike Schmidt+ (PHI)  7.7
+44     1980 (NL AL)     Steve Carlton+ (PHI) 10.1
+45     1979 (NL AL)     Dave Winfield+ (SDP)  8.3
+46     1978 (NL AL)       Phil Niekro+ (ATL) 10.4
+47     1977 (NL AL)      Rick Reuschel (CHC)  9.6
+48     1976 (NL AL)        Joe Morgan+ (CIN)  9.6
+49     1975 (NL AL)        Joe Morgan+ (CIN) 11.0
+50     1974 (NL AL)      Mike Schmidt+ (PHI)  9.8
+51     1973 (NL AL)        Tom Seaver+ (NYM) 11.0
+52     1972 (NL AL)     Steve Carlton+ (PHI) 12.5
+53     1971 (NL AL)    Fergie Jenkins+ (CHC) 11.8
+54     1970 (NL AL)        Bob Gibson+ (STL) 10.1
+55     1969 (NL AL)        Bob Gibson+ (STL) 11.3
+56     1968 (NL AL)        Bob Gibson+ (STL) 11.9
+57     1967 (NL AL)         Ron Santo+ (CHC)  9.8
+58     1966 (NL AL)     Juan Marichal+ (SFG)  9.7
+59     1965 (NL AL)       Willie Mays+ (SFG) 11.2
+60     1964 (NL AL)       Willie Mays+ (SFG) 11.0
+61     1963 (NL AL)       Willie Mays+ (SFG) 10.6
+62     1962 (NL AL)       Willie Mays+ (SFG) 10.5
+63     1961 (NL AL)       Henry Aaron+ (MLN)  9.4
+64     1960 (NL AL)       Willie Mays+ (SFG)  9.5
+65     1959 (NL AL)       Ernie Banks+ (CHC) 10.2
+66     1958 (NL AL)       Willie Mays+ (SFG) 10.2
+67     1957 (NL AL)       Willie Mays+ (NYG)  8.3
+68     1956 (NL AL)       Duke Snider+ (BRO)  7.6
+69     1955 (NL AL)       Willie Mays+ (NYG)  9.2
+70     1954 (NL AL)       Willie Mays+ (NYG) 10.4
+71     1953 (NL AL)     Robin Roberts+ (PHI)  9.9
+72     1952 (NL AL)     Robin Roberts+ (PHI)  8.6
+73     1951 (NL AL)   Jackie Robinson+ (BRO)  9.7
+74     1950 (NL AL)       Eddie Stanky (NYG)  8.2
+75     1949 (NL AL)   Jackie Robinson+ (BRO)  9.3
+76     1948 (NL AL)       Stan Musial+ (STL) 11.3
+77     1947 (NL AL)      Warren Spahn+ (BSN)  9.4
+78     1946 (NL AL)       Stan Musial+ (STL)  9.3
+79     1945 (NL AL)       Tommy Holmes (BSN)  8.4
+80     1944 (NL AL)       Stan Musial+ (STL)  8.9
+81     1943 (NL AL)       Stan Musial+ (STL)  9.5
+82     1942 (NL AL)        Mort Cooper (STL)  8.3
+83     1941 (NL AL)        Pete Reiser (BRO)  8.0
+84     1940 (NL AL)     Claude Passeau (CHC)  7.6
+85     1939 (NL AL)      Bucky Walters (CIN)  9.8
+86     1938 (NL AL)           Mel Ott+ (NYG)  8.9
+87     1937 (NL AL)       Joe Medwick+ (STL)  8.4
+88     1936 (NL AL)      Carl Hubbell+ (NYG) 10.1
+89     1935 (NL AL)      Arky Vaughan+ (PIT)  9.8
+90     1934 (NL AL)        Dizzy Dean+ (STL)  9.5
+91     1933 (NL AL)      Carl Hubbell+ (NYG)  9.0
+92     1932 (NL AL)           Mel Ott+ (NYG)  8.3
+93     1931 (NL AL)        Bill Terry+ (NYG)  6.6
+94     1930 (NL AL)        Bill Terry+ (NYG)  7.9
+95     1929 (NL AL)    Rogers Hornsby+ (CHC) 10.6
+96     1928 (NL AL)       Dazzy Vance+ (BRO) 10.3
+97     1927 (NL AL)    Rogers Hornsby+ (NYG) 10.2
+98     1926 (NL AL)        Hal Carlson (PHI)  8.7
+99     1925 (NL AL)    Rogers Hornsby+ (STL) 10.2
+100    1924 (NL AL)    Rogers Hornsby+ (STL) 12.1
+101    1923 (NL AL)         Dolf Luque (CIN) 10.9
+102    1922 (NL AL)    Rogers Hornsby+ (STL) 10.1
+103    1921 (NL AL)    Rogers Hornsby+ (STL) 10.8
+104    1920 (NL AL)  Grover Alexander+ (CHC) 12.6
+105    1919 (NL AL)  Grover Alexander+ (CHC)  7.5
+106    1918 (NL AL)       Hippo Vaughn (CHC)  8.1
+107    1917 (NL AL)    Rogers Hornsby+ (STL)  9.9
+108    1916 (NL AL)  Grover Alexander+ (PHI) 12.0
+109 1915 (NL AL FL)  Grover Alexander+ (PHI) 10.9
+110 1914 (NL AL FL)  Grover Alexander+ (PHI)  9.2
+111    1913 (NL AL)         Babe Adams (PIT)  9.3
+112    1912 (NL AL)         Nap Rucker (BRO)  8.3
+113    1911 (NL AL)         Nap Rucker (BRO)  8.7
+114    1910 (NL AL) Christy Mathewson+ (NYG)  8.9
+115    1909 (NL AL) Christy Mathewson+ (NYG) 10.6
+116    1908 (NL AL) Christy Mathewson+ (NYG) 11.9
+117    1907 (NL AL)      Honus Wagner+ (PIT)  9.0
+118    1906 (NL AL)      Honus Wagner+ (PIT)  9.3
+119    1905 (NL AL) Christy Mathewson+ (NYG) 10.5
+120    1904 (NL AL)     Joe McGinnity+ (NYG)  9.3
+121    1903 (NL AL)     Joe McGinnity+ (NYG) 11.9
+122    1902 (NL AL)        Jack Taylor (CHC) 10.0
+123    1901 (NL AL) Christy Mathewson+ (NYG)  8.8
+124       1900 (NL)          Cy Young+ (STL)  7.2
+125       1899 (NL)        Vic Willis+ (BSN) 10.0
+126       1898 (NL)       Kid Nichols+ (BSN) 11.2
+127       1897 (NL)       Kid Nichols+ (BSN) 11.1
+128       1896 (NL)          Cy Young+ (CLV) 10.5
+129       1895 (NL)          Cy Young+ (CLV) 11.6
+130       1894 (NL)        Amos Rusie+ (NYG) 13.7
+131       1893 (NL)       Kid Nichols+ (BSN) 11.7
+132       1892 (NL)          Cy Young+ (CLV) 13.0
+133    1891 (NL AA)     John Clarkson+ (BSN)  9.9
+134 1890 (NL AA PL)       Kid Nichols+ (BSN) 13.0
+135    1889 (NL AA)     John Clarkson+ (BSN) 16.2
+136    1888 (NL AA)  Charlie Buffinton (PHI) 12.0
+137    1887 (NL AA)     John Clarkson+ (CHC) 15.0
+138    1886 (NL AA)   Charlie Ferguson (PHI) 11.7
+139    1885 (NL AA)     John Clarkson+ (CHC) 12.8
+140 1884 (NL AA UA) Old Hoss Radbourn+ (PRO) 19.4
+141    1883 (NL AA) Old Hoss Radbourn+ (PRO) 14.3
+142    1882 (NL AA)      Jim McCormick (CLV) 10.9
+143       1881 (NL)        Jim Whitney (BSN)  8.7
+144       1880 (NL)      Jim McCormick (CLV) 10.8
+145       1879 (NL)         Tommy Bond (BSN) 14.3
+146       1878 (NL)         Tommy Bond (BSN) 13.4
+147       1877 (NL)         Jim Devlin (LOU) 13.4
+148       1876 (NL)         Jim Devlin (LOU) 18.3
+149                     National Association   NA
+150       1875 (NA)       Al Spalding+ (BOS) 14.2
+151       1874 (NA)      Bobby Mathews (NYU) 13.7
+152       1873 (NA)      Bobby Mathews (NYU)  9.6
+153       1872 (NA)       Al Spalding+ (BOS) 12.5
+154       1871 (NA)    George Zettlein (CHI)  4.5
+              American.League WAR.1
+1         Shohei Ohtani (LAA)    10
+2           Aaron Judge (NYY)  10.6
+3         Shohei Ohtani (LAA)   8.9
+4          Shane Bieber (CLE)   3.2
+5          Alex Bregman (HOU)   8.9
+6          Mookie Betts (BOS)  10.7
+7           Aaron Judge (NYY)     8
+8            Mike Trout (LAA)  10.5
+9            Mike Trout (LAA)   9.6
+10         Corey Kluber (CLE)   8.1
+11           Mike Trout (LAA)   8.9
+12           Mike Trout (LAA)  10.5
+13     Justin Verlander (DET)   8.6
+14        Josh Hamilton (TEX)   8.7
+15         Zack Greinke (KCR)  10.4
+16        Nick Markakis (BAL)   7.4
+17       Alex Rodriguez (NYY)   9.4
+18        Johan Santana (MIN)   7.6
+19       Alex Rodriguez (NYY)   9.4
+20        Ichiro Suzuki (SEA)   9.2
+21       Alex Rodriguez (TEX)   8.4
+22       Alex Rodriguez (TEX)   8.8
+23         Jason Giambi (OAK)   9.2
+24      Pedro Martinez+ (BOS)  11.7
+25      Pedro Martinez+ (BOS)   9.8
+26       Alex Rodriguez (SEA)   8.5
+27        Roger Clemens (TOR)  12.1
+28     Ken Griffey Jr.+ (SEA)   9.7
+29       Randy Johnson+ (SEA)   8.6
+30         Kenny Lofton (CLE)   7.2
+31         Kevin Appier (KCR)   9.3
+32        Roger Clemens (BOS)   8.7
+33      Cal Ripken Jr.+ (BAL)  11.5
+34        Roger Clemens (BOS)  10.4
+35      Bret Saberhagen (KCR)   9.7
+36          Wade Boggs+ (BOS)   8.3
+37        Roger Clemens (BOS)   9.4
+38        Teddy Higuera (MIL)   9.4
+39    Rickey Henderson+ (NYY)   9.9
+40      Cal Ripken Jr.+ (BAL)    10
+41      Cal Ripken Jr.+ (BAL)   8.2
+42         Robin Yount+ (MIL)  10.5
+43         Dwight Evans (BOS)   6.7
+44        George Brett+ (KCR)   9.4
+45            Fred Lynn (BOS)   8.9
+46           Ron Guidry (NYY)   9.6
+47           Rod Carew+ (MIN)   9.7
+48         Mark Fidrych (DET)   9.6
+49          Jim Palmer+ (BAL)   8.4
+50       Gaylord Perry+ (CLE)   8.5
+51       Bert Blyleven+ (MIN)   9.8
+52       Gaylord Perry+ (CLE)    11
+53          Wilbur Wood (CHW)    11
+54    Carl Yastrzemski+ (BOS)   9.5
+55      Rico Petrocelli (BOS)    10
+56    Carl Yastrzemski+ (BOS)  10.5
+57    Carl Yastrzemski+ (BOS)  12.4
+58          Earl Wilson (2TM)   7.7
+59         Sam McDowell (CLE)   7.9
+60          Dean Chance (LAA)   8.7
+61          Bob Allison (MIN)   7.4
+62         Hank Aguirre (DET)   6.2
+63       Mickey Mantle+ (NYY)  10.5
+64          Roger Maris (NYY)   7.5
+65       Camilo Pascual (WSH)   8.6
+66       Mickey Mantle+ (NYY)   8.7
+67       Mickey Mantle+ (NYY)  11.3
+68       Mickey Mantle+ (NYY)  11.2
+69       Mickey Mantle+ (NYY)   9.5
+70       Minnie Minoso+ (CHW)   8.2
+71             Al Rosen (CLE)  10.1
+72         Bobby Shantz (PHA)   9.4
+73        Ted Williams+ (BOS)   7.1
+74           Ned Garver (SLB)   8.1
+75        Ted Williams+ (BOS)     9
+76        Lou Boudreau+ (CLE)  10.4
+77        Ted Williams+ (BOS)   9.5
+78        Ted Williams+ (BOS)  10.6
+79       Hal Newhouser+ (DET)  12.2
+80          Dizzy Trout (DET)  10.9
+81        Lou Boudreau+ (CLE)   8.1
+82        Ted Williams+ (BOS)  10.5
+83        Ted Williams+ (BOS)  10.4
+84          Bob Feller+ (CLE)   9.8
+85          Bob Feller+ (CLE)   9.7
+86         Jimmie Foxx+ (BOS)   7.4
+87         Lefty Grove+ (BOS)   9.2
+88         Lefty Grove+ (BOS)  10.6
+89          Wes Ferrell (BOS)  10.6
+90          Lou Gehrig+ (NYY)  10.1
+91         Jimmie Foxx+ (PHA)     9
+92         Jimmie Foxx+ (PHA)  10.4
+93           Babe Ruth+ (NYY)  10.5
+94           Babe Ruth+ (NYY)  10.5
+95           Babe Ruth+ (NYY)   8.1
+96           Babe Ruth+ (NYY)  10.2
+97           Babe Ruth+ (NYY)  12.6
+98           Babe Ruth+ (NYY)  11.4
+99      Harry Heilmann+ (DET)     7
+100          Babe Ruth+ (NYY)  11.4
+101          Babe Ruth+ (NYY)  14.1
+102          Red Faber+ (CHW)   9.5
+103          Babe Ruth+ (NYY)  12.6
+104          Babe Ruth+ (NYY)  11.7
+105     Walter Johnson+ (WSH)  10.8
+106     Walter Johnson+ (WSH)  11.7
+107       Eddie Cicotte (CHW)  11.9
+108     Walter Johnson+ (WSH)    11
+109     Walter Johnson+ (WSH)  12.5
+110     Walter Johnson+ (WSH)  12.8
+111     Walter Johnson+ (WSH)  16.5
+112     Walter Johnson+ (WSH)  14.3
+113            Ty Cobb+ (DET)  10.7
+114           Russ Ford (NYY)  11.9
+115            Ty Cobb+ (DET)   9.9
+116           Ed Walsh+ (CHW)  10.7
+117          Ed Killian (DET)   7.9
+118         Nap Lajoie+ (CLE)    10
+119       Rube Waddell+ (PHA)   9.3
+120       Jack Chesbro+ (NYY)  11.4
+121           Cy Young+ (BOS)   8.1
+122           Cy Young+ (BOS)  10.1
+123           Cy Young+ (BOS)  12.5
+124                                
+125                                
+126                                
+127                                
+128                                
+129                                
+130                                
+131                                
+132      American Association   WAR
+133       Sadie McMahon (BAL)   9.4
+134      Scott Stratton (LOU)  10.8
+135 Ice Box Chamberlain (STL)   9.2
+136         Silver King (STL)    16
+137         Matt Kilroy (BAL)  12.1
+138         Toad Ramsey (LOU)  12.5
+139           Ed Morris (PIT)  12.7
+140          Guy Hecker (LOU)  17.8
+141          Tim Keefe+ (NYP)  20.2
+142          Will White (CIN)  11.3
+143                                
+144                                
+145                                
+146                                
+147                                
+148                                
+149                                
+150                                
+151                                
+152                                
+153                                
+154                                </code></pre>
+</div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
