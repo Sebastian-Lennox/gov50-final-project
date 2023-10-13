@@ -12,3 +12,13 @@ output:
 ## Project thoughts
 
 I am interested in exploring data related to baseball. I want to determine the impact of notable individuals' hitting stats on their team's overall performance. I will be observing the effects of this starting from after the steroid era, in 2005. 
+
+```{r}
+library(tidyverse)
+Yearly_WAR_Leaders <- read.csv("~/Downloads/Untitled spreadsheet - Sheet1.csv")
+Yearly_WAR_Leaders <- Yearly_WAR_Leaders |>
+  select(Year:WAR, American.League:WAR.1)
+
+Yearly_WAR_Leaders
+```
+
