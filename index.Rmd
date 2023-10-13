@@ -9,9 +9,14 @@ output:
 
 
 
-## Project thoughts
+## Project Proposal
 
-I am interested in exploring data related to baseball. I want to determine the impact of notable individuals' hitting stats on their team's overall performance. I will be observing the effects of this starting from after the steroid era, in 2005. 
+How is teams’ performance overall (win record, making it to the playoffs, winning the world series) affected by players with the highest WAR in their league in a particular year? 
+I hypothesize that players with the highest WAR in their league do not notably affect the success of their team. This is because of the way baseball is structured, where batters are 1 of 9 different players impacting a team, and pitchers are 1 of 5. Overall, players who have higher WAR may contribute to a small amount of their team’s success, but in the majority of games in a 162 game season, they can only contribute to so many runs/innings. In other words, there are far too many other individual efforts that help a team win, that relying on a single player’s WAR value alone is unreasonable. 
+The current variable of interest is WAR, which is short for Wins Above Replacement. In baseball statistics, WAR is used to determine a player’s individual value as compared to a player who would consistently play in the minor leagues (ie there is a large gap in skill between the players with the highest WAR and those that they are replacing). WAR is calculated in several different ways, and I have not determined yet how I am going to calculate it for this project (several individual statistics, including Batting Runs, Fielding positioning, and replacement runs, among other things, are often included in the calculation). 
+The success of a team will be measured in two ways. A team’s overall record (and positioning in the league-wide standings) will be compared to comparable teams’ records, and more importantly, the other team in MLB with a player who led in WAR for that season. In addition, a team’s success in the playoffs, combined with whether or not they won the World Series, will be another way to determine how important having a player with a high WAR is. 
+If teams that have players with high WAR fail to reach the playoffs, or only manage to enter through the wildcard, this will be a strong indication of how little effect these players have. In addition, their success in the postseason, potentially analyzed in tandem with the players’ postseason WAR, may further indicate the actual impact that these highly skilled individuals actually have. 
+ 
 
 ```{r}
 library(tidyverse)
@@ -21,11 +26,3 @@ Yearly_WAR_Leaders <- Yearly_WAR_Leaders |>
 
 Yearly_WAR_Leaders
 ```
-
-## Project Proposal
-
-How is teams’ performance overall (win record, making it to the playoffs, winning the world series) affected by players with the highest WAR in their league in a particular year? 
-I hypothesize that players with the highest WAR in their league do not notably affect the success of their team. This is because of the way baseball is structured, where batters are 1 of 9 different players impacting a team, and pitchers are 1 of 5. Overall, players who have higher WAR may contribute to a small amount of their team’s success, but in the majority of games in a 162 game season, they can only contribute to so many runs/innings. In other words, there are far too many other individual efforts that help a team win, that relying on a single player’s WAR value alone is unreasonable. 
-The current variable of interest is WAR, which is short for Wins Above Replacement. In baseball statistics, WAR is used to determine a player’s individual value as compared to a player who would consistently play in the minor leagues (ie there is a large gap in skill between the players with the highest WAR and those that they are replacing). WAR is calculated in several different ways, and I have not determined yet how I am going to calculate it for this project (several individual statistics, including Batting Runs, Fielding positioning, and replacement runs, among other things, are often included in the calculation). 
-The success of a team will be measured in two ways. A team’s overall record (and positioning in the league-wide standings) will be compared to comparable teams’ records, and more importantly, the other team in MLB with a player who led in WAR for that season. In addition, a team’s success in the playoffs, combined with whether or not they won the World Series, will be another way to determine how important having a player with a high WAR is. 
-If teams that have players with high WAR fail to reach the playoffs, or only manage to enter through the wildcard, this will be a strong indication of how little effect these players have. In addition, their success in the postseason, potentially analyzed in tandem with the players’ postseason WAR, may further indicate the actual impact that these highly skilled individuals actually have. 
