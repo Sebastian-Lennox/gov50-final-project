@@ -1530,320 +1530,1108 @@ If teams that have players with high WAR fail to reach the playoffs, or only man
 <span><span class='va'>Yearly_WAR_Leaders</span> <span class='op'>&lt;-</span> <span class='va'>Yearly_WAR_Leaders</span> <span class='op'>|&gt;</span></span>
 <span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>Year</span><span class='op'>:</span><span class='va'>WAR</span>, <span class='va'>American.League</span><span class='op'>:</span><span class='va'>WAR.1</span><span class='op'>)</span></span>
 <span></span>
-<span><span class='va'>Yearly_WAR_Leaders</span></span></code></pre>
+<span><span class='fu'>knitr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/kable.html'>kable</a></span><span class='op'>(</span><span class='va'>Yearly_WAR_Leaders</span><span class='op'>)</span></span></code></pre>
 </div>
-<pre><code>               Year          National.League  WAR
-1      2023 (NL AL)       Mookie Betts (LAD)  8.4
-2      2022 (NL AL)      Nolan Arenado (STL)  7.9
-3      2021 (NL AL)       Zack Wheeler (PHI)  7.7
-4      2020 (NL AL)       Mookie Betts (LAD)  3.6
-5      2019 (NL AL)     Cody Bellinger (LAD)  8.6
-6      2018 (NL AL)       Jacob deGrom (NYM)  9.9
-7      2017 (NL AL)         Joey Votto (CIN)  8.1
-8      2016 (NL AL)        Kris Bryant (CHC)  7.3
-9      2015 (NL AL)       Bryce Harper (WSN)  9.7
-10     2014 (NL AL)    Clayton Kershaw (LAD)  8.2
-11     2013 (NL AL)    Clayton Kershaw (LAD)  8.6
-12     2012 (NL AL)       Buster Posey (SFG)  7.6
-13     2011 (NL AL)          Cliff Lee (PHI)  9.0
-14     2010 (NL AL)      Roy Halladay+ (PHI)  8.3
-15     2009 (NL AL)      Albert Pujols (STL)  9.7
-16     2008 (NL AL)      Albert Pujols (STL)  9.2
-17     2007 (NL AL)      Albert Pujols (STL)  8.7
-18     2006 (NL AL)      Albert Pujols (STL)  8.5
-19     2005 (NL AL)      Albert Pujols (STL)  8.4
-20     2004 (NL AL)        Barry Bonds (SFG) 10.6
-21     2003 (NL AL)        Barry Bonds (SFG)  9.2
-22     2002 (NL AL)        Barry Bonds (SFG) 11.7
-23     2001 (NL AL)        Barry Bonds (SFG) 11.9
-24     2000 (NL AL)        Todd Helton (COL)  8.9
-25     1999 (NL AL)     Randy Johnson+ (ARI)  8.6
-26     1998 (NL AL)        Kevin Brown (SDP)  9.1
-27     1997 (NL AL)      Larry Walker+ (COL)  9.8
-28     1996 (NL AL)        Barry Bonds (SFG)  9.7
-29     1995 (NL AL)       Greg Maddux+ (ATL)  9.6
-30     1994 (NL AL)       Greg Maddux+ (ATL)  8.7
-31     1993 (NL AL)          Jose Rijo (CIN) 10.1
-32     1992 (NL AL)       Greg Maddux+ (CHC)  9.4
-33     1991 (NL AL)       Tom Glavine+ (ATL)  9.2
-34     1990 (NL AL)        Barry Bonds (PIT)  9.7
-35     1989 (NL AL)       Lonnie Smith (ATL)  8.8
-36     1988 (NL AL)     Orel Hershiser (LAD)  7.1
-37     1987 (NL AL)        Tony Gwynn+ (SDP)  8.6
-38     1986 (NL AL)         Mike Scott (HOU)  8.2
-39     1985 (NL AL)      Dwight Gooden (NYM) 13.3
-40     1984 (NL AL)     Ryne Sandberg+ (CHC)  8.6
-41     1983 (NL AL)         John Denny (PHI)  7.5
-42     1982 (NL AL)       Gary Carter+ (MON)  8.6
-43     1981 (NL AL)      Mike Schmidt+ (PHI)  7.7
-44     1980 (NL AL)     Steve Carlton+ (PHI) 10.1
-45     1979 (NL AL)     Dave Winfield+ (SDP)  8.3
-46     1978 (NL AL)       Phil Niekro+ (ATL) 10.4
-47     1977 (NL AL)      Rick Reuschel (CHC)  9.6
-48     1976 (NL AL)        Joe Morgan+ (CIN)  9.6
-49     1975 (NL AL)        Joe Morgan+ (CIN) 11.0
-50     1974 (NL AL)      Mike Schmidt+ (PHI)  9.8
-51     1973 (NL AL)        Tom Seaver+ (NYM) 11.0
-52     1972 (NL AL)     Steve Carlton+ (PHI) 12.5
-53     1971 (NL AL)    Fergie Jenkins+ (CHC) 11.8
-54     1970 (NL AL)        Bob Gibson+ (STL) 10.1
-55     1969 (NL AL)        Bob Gibson+ (STL) 11.3
-56     1968 (NL AL)        Bob Gibson+ (STL) 11.9
-57     1967 (NL AL)         Ron Santo+ (CHC)  9.8
-58     1966 (NL AL)     Juan Marichal+ (SFG)  9.7
-59     1965 (NL AL)       Willie Mays+ (SFG) 11.2
-60     1964 (NL AL)       Willie Mays+ (SFG) 11.0
-61     1963 (NL AL)       Willie Mays+ (SFG) 10.6
-62     1962 (NL AL)       Willie Mays+ (SFG) 10.5
-63     1961 (NL AL)       Henry Aaron+ (MLN)  9.4
-64     1960 (NL AL)       Willie Mays+ (SFG)  9.5
-65     1959 (NL AL)       Ernie Banks+ (CHC) 10.2
-66     1958 (NL AL)       Willie Mays+ (SFG) 10.2
-67     1957 (NL AL)       Willie Mays+ (NYG)  8.3
-68     1956 (NL AL)       Duke Snider+ (BRO)  7.6
-69     1955 (NL AL)       Willie Mays+ (NYG)  9.2
-70     1954 (NL AL)       Willie Mays+ (NYG) 10.4
-71     1953 (NL AL)     Robin Roberts+ (PHI)  9.9
-72     1952 (NL AL)     Robin Roberts+ (PHI)  8.6
-73     1951 (NL AL)   Jackie Robinson+ (BRO)  9.7
-74     1950 (NL AL)       Eddie Stanky (NYG)  8.2
-75     1949 (NL AL)   Jackie Robinson+ (BRO)  9.3
-76     1948 (NL AL)       Stan Musial+ (STL) 11.3
-77     1947 (NL AL)      Warren Spahn+ (BSN)  9.4
-78     1946 (NL AL)       Stan Musial+ (STL)  9.3
-79     1945 (NL AL)       Tommy Holmes (BSN)  8.4
-80     1944 (NL AL)       Stan Musial+ (STL)  8.9
-81     1943 (NL AL)       Stan Musial+ (STL)  9.5
-82     1942 (NL AL)        Mort Cooper (STL)  8.3
-83     1941 (NL AL)        Pete Reiser (BRO)  8.0
-84     1940 (NL AL)     Claude Passeau (CHC)  7.6
-85     1939 (NL AL)      Bucky Walters (CIN)  9.8
-86     1938 (NL AL)           Mel Ott+ (NYG)  8.9
-87     1937 (NL AL)       Joe Medwick+ (STL)  8.4
-88     1936 (NL AL)      Carl Hubbell+ (NYG) 10.1
-89     1935 (NL AL)      Arky Vaughan+ (PIT)  9.8
-90     1934 (NL AL)        Dizzy Dean+ (STL)  9.5
-91     1933 (NL AL)      Carl Hubbell+ (NYG)  9.0
-92     1932 (NL AL)           Mel Ott+ (NYG)  8.3
-93     1931 (NL AL)        Bill Terry+ (NYG)  6.6
-94     1930 (NL AL)        Bill Terry+ (NYG)  7.9
-95     1929 (NL AL)    Rogers Hornsby+ (CHC) 10.6
-96     1928 (NL AL)       Dazzy Vance+ (BRO) 10.3
-97     1927 (NL AL)    Rogers Hornsby+ (NYG) 10.2
-98     1926 (NL AL)        Hal Carlson (PHI)  8.7
-99     1925 (NL AL)    Rogers Hornsby+ (STL) 10.2
-100    1924 (NL AL)    Rogers Hornsby+ (STL) 12.1
-101    1923 (NL AL)         Dolf Luque (CIN) 10.9
-102    1922 (NL AL)    Rogers Hornsby+ (STL) 10.1
-103    1921 (NL AL)    Rogers Hornsby+ (STL) 10.8
-104    1920 (NL AL)  Grover Alexander+ (CHC) 12.6
-105    1919 (NL AL)  Grover Alexander+ (CHC)  7.5
-106    1918 (NL AL)       Hippo Vaughn (CHC)  8.1
-107    1917 (NL AL)    Rogers Hornsby+ (STL)  9.9
-108    1916 (NL AL)  Grover Alexander+ (PHI) 12.0
-109 1915 (NL AL FL)  Grover Alexander+ (PHI) 10.9
-110 1914 (NL AL FL)  Grover Alexander+ (PHI)  9.2
-111    1913 (NL AL)         Babe Adams (PIT)  9.3
-112    1912 (NL AL)         Nap Rucker (BRO)  8.3
-113    1911 (NL AL)         Nap Rucker (BRO)  8.7
-114    1910 (NL AL) Christy Mathewson+ (NYG)  8.9
-115    1909 (NL AL) Christy Mathewson+ (NYG) 10.6
-116    1908 (NL AL) Christy Mathewson+ (NYG) 11.9
-117    1907 (NL AL)      Honus Wagner+ (PIT)  9.0
-118    1906 (NL AL)      Honus Wagner+ (PIT)  9.3
-119    1905 (NL AL) Christy Mathewson+ (NYG) 10.5
-120    1904 (NL AL)     Joe McGinnity+ (NYG)  9.3
-121    1903 (NL AL)     Joe McGinnity+ (NYG) 11.9
-122    1902 (NL AL)        Jack Taylor (CHC) 10.0
-123    1901 (NL AL) Christy Mathewson+ (NYG)  8.8
-124       1900 (NL)          Cy Young+ (STL)  7.2
-125       1899 (NL)        Vic Willis+ (BSN) 10.0
-126       1898 (NL)       Kid Nichols+ (BSN) 11.2
-127       1897 (NL)       Kid Nichols+ (BSN) 11.1
-128       1896 (NL)          Cy Young+ (CLV) 10.5
-129       1895 (NL)          Cy Young+ (CLV) 11.6
-130       1894 (NL)        Amos Rusie+ (NYG) 13.7
-131       1893 (NL)       Kid Nichols+ (BSN) 11.7
-132       1892 (NL)          Cy Young+ (CLV) 13.0
-133    1891 (NL AA)     John Clarkson+ (BSN)  9.9
-134 1890 (NL AA PL)       Kid Nichols+ (BSN) 13.0
-135    1889 (NL AA)     John Clarkson+ (BSN) 16.2
-136    1888 (NL AA)  Charlie Buffinton (PHI) 12.0
-137    1887 (NL AA)     John Clarkson+ (CHC) 15.0
-138    1886 (NL AA)   Charlie Ferguson (PHI) 11.7
-139    1885 (NL AA)     John Clarkson+ (CHC) 12.8
-140 1884 (NL AA UA) Old Hoss Radbourn+ (PRO) 19.4
-141    1883 (NL AA) Old Hoss Radbourn+ (PRO) 14.3
-142    1882 (NL AA)      Jim McCormick (CLV) 10.9
-143       1881 (NL)        Jim Whitney (BSN)  8.7
-144       1880 (NL)      Jim McCormick (CLV) 10.8
-145       1879 (NL)         Tommy Bond (BSN) 14.3
-146       1878 (NL)         Tommy Bond (BSN) 13.4
-147       1877 (NL)         Jim Devlin (LOU) 13.4
-148       1876 (NL)         Jim Devlin (LOU) 18.3
-149                     National Association   NA
-150       1875 (NA)       Al Spalding+ (BOS) 14.2
-151       1874 (NA)      Bobby Mathews (NYU) 13.7
-152       1873 (NA)      Bobby Mathews (NYU)  9.6
-153       1872 (NA)       Al Spalding+ (BOS) 12.5
-154       1871 (NA)    George Zettlein (CHI)  4.5
-              American.League WAR.1
-1         Shohei Ohtani (LAA)    10
-2           Aaron Judge (NYY)  10.6
-3         Shohei Ohtani (LAA)   8.9
-4          Shane Bieber (CLE)   3.2
-5          Alex Bregman (HOU)   8.9
-6          Mookie Betts (BOS)  10.7
-7           Aaron Judge (NYY)     8
-8            Mike Trout (LAA)  10.5
-9            Mike Trout (LAA)   9.6
-10         Corey Kluber (CLE)   8.1
-11           Mike Trout (LAA)   8.9
-12           Mike Trout (LAA)  10.5
-13     Justin Verlander (DET)   8.6
-14        Josh Hamilton (TEX)   8.7
-15         Zack Greinke (KCR)  10.4
-16        Nick Markakis (BAL)   7.4
-17       Alex Rodriguez (NYY)   9.4
-18        Johan Santana (MIN)   7.6
-19       Alex Rodriguez (NYY)   9.4
-20        Ichiro Suzuki (SEA)   9.2
-21       Alex Rodriguez (TEX)   8.4
-22       Alex Rodriguez (TEX)   8.8
-23         Jason Giambi (OAK)   9.2
-24      Pedro Martinez+ (BOS)  11.7
-25      Pedro Martinez+ (BOS)   9.8
-26       Alex Rodriguez (SEA)   8.5
-27        Roger Clemens (TOR)  12.1
-28     Ken Griffey Jr.+ (SEA)   9.7
-29       Randy Johnson+ (SEA)   8.6
-30         Kenny Lofton (CLE)   7.2
-31         Kevin Appier (KCR)   9.3
-32        Roger Clemens (BOS)   8.7
-33      Cal Ripken Jr.+ (BAL)  11.5
-34        Roger Clemens (BOS)  10.4
-35      Bret Saberhagen (KCR)   9.7
-36          Wade Boggs+ (BOS)   8.3
-37        Roger Clemens (BOS)   9.4
-38        Teddy Higuera (MIL)   9.4
-39    Rickey Henderson+ (NYY)   9.9
-40      Cal Ripken Jr.+ (BAL)    10
-41      Cal Ripken Jr.+ (BAL)   8.2
-42         Robin Yount+ (MIL)  10.5
-43         Dwight Evans (BOS)   6.7
-44        George Brett+ (KCR)   9.4
-45            Fred Lynn (BOS)   8.9
-46           Ron Guidry (NYY)   9.6
-47           Rod Carew+ (MIN)   9.7
-48         Mark Fidrych (DET)   9.6
-49          Jim Palmer+ (BAL)   8.4
-50       Gaylord Perry+ (CLE)   8.5
-51       Bert Blyleven+ (MIN)   9.8
-52       Gaylord Perry+ (CLE)    11
-53          Wilbur Wood (CHW)    11
-54    Carl Yastrzemski+ (BOS)   9.5
-55      Rico Petrocelli (BOS)    10
-56    Carl Yastrzemski+ (BOS)  10.5
-57    Carl Yastrzemski+ (BOS)  12.4
-58          Earl Wilson (2TM)   7.7
-59         Sam McDowell (CLE)   7.9
-60          Dean Chance (LAA)   8.7
-61          Bob Allison (MIN)   7.4
-62         Hank Aguirre (DET)   6.2
-63       Mickey Mantle+ (NYY)  10.5
-64          Roger Maris (NYY)   7.5
-65       Camilo Pascual (WSH)   8.6
-66       Mickey Mantle+ (NYY)   8.7
-67       Mickey Mantle+ (NYY)  11.3
-68       Mickey Mantle+ (NYY)  11.2
-69       Mickey Mantle+ (NYY)   9.5
-70       Minnie Minoso+ (CHW)   8.2
-71             Al Rosen (CLE)  10.1
-72         Bobby Shantz (PHA)   9.4
-73        Ted Williams+ (BOS)   7.1
-74           Ned Garver (SLB)   8.1
-75        Ted Williams+ (BOS)     9
-76        Lou Boudreau+ (CLE)  10.4
-77        Ted Williams+ (BOS)   9.5
-78        Ted Williams+ (BOS)  10.6
-79       Hal Newhouser+ (DET)  12.2
-80          Dizzy Trout (DET)  10.9
-81        Lou Boudreau+ (CLE)   8.1
-82        Ted Williams+ (BOS)  10.5
-83        Ted Williams+ (BOS)  10.4
-84          Bob Feller+ (CLE)   9.8
-85          Bob Feller+ (CLE)   9.7
-86         Jimmie Foxx+ (BOS)   7.4
-87         Lefty Grove+ (BOS)   9.2
-88         Lefty Grove+ (BOS)  10.6
-89          Wes Ferrell (BOS)  10.6
-90          Lou Gehrig+ (NYY)  10.1
-91         Jimmie Foxx+ (PHA)     9
-92         Jimmie Foxx+ (PHA)  10.4
-93           Babe Ruth+ (NYY)  10.5
-94           Babe Ruth+ (NYY)  10.5
-95           Babe Ruth+ (NYY)   8.1
-96           Babe Ruth+ (NYY)  10.2
-97           Babe Ruth+ (NYY)  12.6
-98           Babe Ruth+ (NYY)  11.4
-99      Harry Heilmann+ (DET)     7
-100          Babe Ruth+ (NYY)  11.4
-101          Babe Ruth+ (NYY)  14.1
-102          Red Faber+ (CHW)   9.5
-103          Babe Ruth+ (NYY)  12.6
-104          Babe Ruth+ (NYY)  11.7
-105     Walter Johnson+ (WSH)  10.8
-106     Walter Johnson+ (WSH)  11.7
-107       Eddie Cicotte (CHW)  11.9
-108     Walter Johnson+ (WSH)    11
-109     Walter Johnson+ (WSH)  12.5
-110     Walter Johnson+ (WSH)  12.8
-111     Walter Johnson+ (WSH)  16.5
-112     Walter Johnson+ (WSH)  14.3
-113            Ty Cobb+ (DET)  10.7
-114           Russ Ford (NYY)  11.9
-115            Ty Cobb+ (DET)   9.9
-116           Ed Walsh+ (CHW)  10.7
-117          Ed Killian (DET)   7.9
-118         Nap Lajoie+ (CLE)    10
-119       Rube Waddell+ (PHA)   9.3
-120       Jack Chesbro+ (NYY)  11.4
-121           Cy Young+ (BOS)   8.1
-122           Cy Young+ (BOS)  10.1
-123           Cy Young+ (BOS)  12.5
-124                                
-125                                
-126                                
-127                                
-128                                
-129                                
-130                                
-131                                
-132      American Association   WAR
-133       Sadie McMahon (BAL)   9.4
-134      Scott Stratton (LOU)  10.8
-135 Ice Box Chamberlain (STL)   9.2
-136         Silver King (STL)    16
-137         Matt Kilroy (BAL)  12.1
-138         Toad Ramsey (LOU)  12.5
-139           Ed Morris (PIT)  12.7
-140          Guy Hecker (LOU)  17.8
-141          Tim Keefe+ (NYP)  20.2
-142          Will White (CIN)  11.3
-143                                
-144                                
-145                                
-146                                
-147                                
-148                                
-149                                
-150                                
-151                                
-152                                
-153                                
-154                                </code></pre>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 32%" />
+<col style="width: 6%" />
+<col style="width: 33%" />
+<col style="width: 7%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Year</th>
+<th style="text-align: left;">National.League</th>
+<th style="text-align: right;">WAR</th>
+<th style="text-align: left;">American.League</th>
+<th style="text-align: left;">WAR.1</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">2023 (NL AL)</td>
+<td style="text-align: left;">Mookie Betts (LAD)</td>
+<td style="text-align: right;">8.4</td>
+<td style="text-align: left;">Shohei Ohtani (LAA)</td>
+<td style="text-align: left;">10</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2022 (NL AL)</td>
+<td style="text-align: left;">Nolan Arenado (STL)</td>
+<td style="text-align: right;">7.9</td>
+<td style="text-align: left;">Aaron Judge (NYY)</td>
+<td style="text-align: left;">10.6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2021 (NL AL)</td>
+<td style="text-align: left;">Zack Wheeler (PHI)</td>
+<td style="text-align: right;">7.7</td>
+<td style="text-align: left;">Shohei Ohtani (LAA)</td>
+<td style="text-align: left;">8.9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2020 (NL AL)</td>
+<td style="text-align: left;">Mookie Betts (LAD)</td>
+<td style="text-align: right;">3.6</td>
+<td style="text-align: left;">Shane Bieber (CLE)</td>
+<td style="text-align: left;">3.2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2019 (NL AL)</td>
+<td style="text-align: left;">Cody Bellinger (LAD)</td>
+<td style="text-align: right;">8.6</td>
+<td style="text-align: left;">Alex Bregman (HOU)</td>
+<td style="text-align: left;">8.9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2018 (NL AL)</td>
+<td style="text-align: left;">Jacob deGrom (NYM)</td>
+<td style="text-align: right;">9.9</td>
+<td style="text-align: left;">Mookie Betts (BOS)</td>
+<td style="text-align: left;">10.7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2017 (NL AL)</td>
+<td style="text-align: left;">Joey Votto (CIN)</td>
+<td style="text-align: right;">8.1</td>
+<td style="text-align: left;">Aaron Judge (NYY)</td>
+<td style="text-align: left;">8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2016 (NL AL)</td>
+<td style="text-align: left;">Kris Bryant (CHC)</td>
+<td style="text-align: right;">7.3</td>
+<td style="text-align: left;">Mike Trout (LAA)</td>
+<td style="text-align: left;">10.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2015 (NL AL)</td>
+<td style="text-align: left;">Bryce Harper (WSN)</td>
+<td style="text-align: right;">9.7</td>
+<td style="text-align: left;">Mike Trout (LAA)</td>
+<td style="text-align: left;">9.6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2014 (NL AL)</td>
+<td style="text-align: left;">Clayton Kershaw (LAD)</td>
+<td style="text-align: right;">8.2</td>
+<td style="text-align: left;">Corey Kluber (CLE)</td>
+<td style="text-align: left;">8.1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2013 (NL AL)</td>
+<td style="text-align: left;">Clayton Kershaw (LAD)</td>
+<td style="text-align: right;">8.6</td>
+<td style="text-align: left;">Mike Trout (LAA)</td>
+<td style="text-align: left;">8.9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2012 (NL AL)</td>
+<td style="text-align: left;">Buster Posey (SFG)</td>
+<td style="text-align: right;">7.6</td>
+<td style="text-align: left;">Mike Trout (LAA)</td>
+<td style="text-align: left;">10.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2011 (NL AL)</td>
+<td style="text-align: left;">Cliff Lee (PHI)</td>
+<td style="text-align: right;">9.0</td>
+<td style="text-align: left;">Justin Verlander (DET)</td>
+<td style="text-align: left;">8.6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2010 (NL AL)</td>
+<td style="text-align: left;">Roy Halladay+ (PHI)</td>
+<td style="text-align: right;">8.3</td>
+<td style="text-align: left;">Josh Hamilton (TEX)</td>
+<td style="text-align: left;">8.7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2009 (NL AL)</td>
+<td style="text-align: left;">Albert Pujols (STL)</td>
+<td style="text-align: right;">9.7</td>
+<td style="text-align: left;">Zack Greinke (KCR)</td>
+<td style="text-align: left;">10.4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2008 (NL AL)</td>
+<td style="text-align: left;">Albert Pujols (STL)</td>
+<td style="text-align: right;">9.2</td>
+<td style="text-align: left;">Nick Markakis (BAL)</td>
+<td style="text-align: left;">7.4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2007 (NL AL)</td>
+<td style="text-align: left;">Albert Pujols (STL)</td>
+<td style="text-align: right;">8.7</td>
+<td style="text-align: left;">Alex Rodriguez (NYY)</td>
+<td style="text-align: left;">9.4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2006 (NL AL)</td>
+<td style="text-align: left;">Albert Pujols (STL)</td>
+<td style="text-align: right;">8.5</td>
+<td style="text-align: left;">Johan Santana (MIN)</td>
+<td style="text-align: left;">7.6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2005 (NL AL)</td>
+<td style="text-align: left;">Albert Pujols (STL)</td>
+<td style="text-align: right;">8.4</td>
+<td style="text-align: left;">Alex Rodriguez (NYY)</td>
+<td style="text-align: left;">9.4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2004 (NL AL)</td>
+<td style="text-align: left;">Barry Bonds (SFG)</td>
+<td style="text-align: right;">10.6</td>
+<td style="text-align: left;">Ichiro Suzuki (SEA)</td>
+<td style="text-align: left;">9.2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2003 (NL AL)</td>
+<td style="text-align: left;">Barry Bonds (SFG)</td>
+<td style="text-align: right;">9.2</td>
+<td style="text-align: left;">Alex Rodriguez (TEX)</td>
+<td style="text-align: left;">8.4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2002 (NL AL)</td>
+<td style="text-align: left;">Barry Bonds (SFG)</td>
+<td style="text-align: right;">11.7</td>
+<td style="text-align: left;">Alex Rodriguez (TEX)</td>
+<td style="text-align: left;">8.8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2001 (NL AL)</td>
+<td style="text-align: left;">Barry Bonds (SFG)</td>
+<td style="text-align: right;">11.9</td>
+<td style="text-align: left;">Jason Giambi (OAK)</td>
+<td style="text-align: left;">9.2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2000 (NL AL)</td>
+<td style="text-align: left;">Todd Helton (COL)</td>
+<td style="text-align: right;">8.9</td>
+<td style="text-align: left;">Pedro Martinez+ (BOS)</td>
+<td style="text-align: left;">11.7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1999 (NL AL)</td>
+<td style="text-align: left;">Randy Johnson+ (ARI)</td>
+<td style="text-align: right;">8.6</td>
+<td style="text-align: left;">Pedro Martinez+ (BOS)</td>
+<td style="text-align: left;">9.8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1998 (NL AL)</td>
+<td style="text-align: left;">Kevin Brown (SDP)</td>
+<td style="text-align: right;">9.1</td>
+<td style="text-align: left;">Alex Rodriguez (SEA)</td>
+<td style="text-align: left;">8.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1997 (NL AL)</td>
+<td style="text-align: left;">Larry Walker+ (COL)</td>
+<td style="text-align: right;">9.8</td>
+<td style="text-align: left;">Roger Clemens (TOR)</td>
+<td style="text-align: left;">12.1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1996 (NL AL)</td>
+<td style="text-align: left;">Barry Bonds (SFG)</td>
+<td style="text-align: right;">9.7</td>
+<td style="text-align: left;">Ken Griffey Jr.+ (SEA)</td>
+<td style="text-align: left;">9.7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1995 (NL AL)</td>
+<td style="text-align: left;">Greg Maddux+ (ATL)</td>
+<td style="text-align: right;">9.6</td>
+<td style="text-align: left;">Randy Johnson+ (SEA)</td>
+<td style="text-align: left;">8.6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1994 (NL AL)</td>
+<td style="text-align: left;">Greg Maddux+ (ATL)</td>
+<td style="text-align: right;">8.7</td>
+<td style="text-align: left;">Kenny Lofton (CLE)</td>
+<td style="text-align: left;">7.2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1993 (NL AL)</td>
+<td style="text-align: left;">Jose Rijo (CIN)</td>
+<td style="text-align: right;">10.1</td>
+<td style="text-align: left;">Kevin Appier (KCR)</td>
+<td style="text-align: left;">9.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1992 (NL AL)</td>
+<td style="text-align: left;">Greg Maddux+ (CHC)</td>
+<td style="text-align: right;">9.4</td>
+<td style="text-align: left;">Roger Clemens (BOS)</td>
+<td style="text-align: left;">8.7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1991 (NL AL)</td>
+<td style="text-align: left;">Tom Glavine+ (ATL)</td>
+<td style="text-align: right;">9.2</td>
+<td style="text-align: left;">Cal Ripken Jr.+ (BAL)</td>
+<td style="text-align: left;">11.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1990 (NL AL)</td>
+<td style="text-align: left;">Barry Bonds (PIT)</td>
+<td style="text-align: right;">9.7</td>
+<td style="text-align: left;">Roger Clemens (BOS)</td>
+<td style="text-align: left;">10.4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1989 (NL AL)</td>
+<td style="text-align: left;">Lonnie Smith (ATL)</td>
+<td style="text-align: right;">8.8</td>
+<td style="text-align: left;">Bret Saberhagen (KCR)</td>
+<td style="text-align: left;">9.7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1988 (NL AL)</td>
+<td style="text-align: left;">Orel Hershiser (LAD)</td>
+<td style="text-align: right;">7.1</td>
+<td style="text-align: left;">Wade Boggs+ (BOS)</td>
+<td style="text-align: left;">8.3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1987 (NL AL)</td>
+<td style="text-align: left;">Tony Gwynn+ (SDP)</td>
+<td style="text-align: right;">8.6</td>
+<td style="text-align: left;">Roger Clemens (BOS)</td>
+<td style="text-align: left;">9.4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1986 (NL AL)</td>
+<td style="text-align: left;">Mike Scott (HOU)</td>
+<td style="text-align: right;">8.2</td>
+<td style="text-align: left;">Teddy Higuera (MIL)</td>
+<td style="text-align: left;">9.4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1985 (NL AL)</td>
+<td style="text-align: left;">Dwight Gooden (NYM)</td>
+<td style="text-align: right;">13.3</td>
+<td style="text-align: left;">Rickey Henderson+ (NYY)</td>
+<td style="text-align: left;">9.9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1984 (NL AL)</td>
+<td style="text-align: left;">Ryne Sandberg+ (CHC)</td>
+<td style="text-align: right;">8.6</td>
+<td style="text-align: left;">Cal Ripken Jr.+ (BAL)</td>
+<td style="text-align: left;">10</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1983 (NL AL)</td>
+<td style="text-align: left;">John Denny (PHI)</td>
+<td style="text-align: right;">7.5</td>
+<td style="text-align: left;">Cal Ripken Jr.+ (BAL)</td>
+<td style="text-align: left;">8.2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1982 (NL AL)</td>
+<td style="text-align: left;">Gary Carter+ (MON)</td>
+<td style="text-align: right;">8.6</td>
+<td style="text-align: left;">Robin Yount+ (MIL)</td>
+<td style="text-align: left;">10.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1981 (NL AL)</td>
+<td style="text-align: left;">Mike Schmidt+ (PHI)</td>
+<td style="text-align: right;">7.7</td>
+<td style="text-align: left;">Dwight Evans (BOS)</td>
+<td style="text-align: left;">6.7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1980 (NL AL)</td>
+<td style="text-align: left;">Steve Carlton+ (PHI)</td>
+<td style="text-align: right;">10.1</td>
+<td style="text-align: left;">George Brett+ (KCR)</td>
+<td style="text-align: left;">9.4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1979 (NL AL)</td>
+<td style="text-align: left;">Dave Winfield+ (SDP)</td>
+<td style="text-align: right;">8.3</td>
+<td style="text-align: left;">Fred Lynn (BOS)</td>
+<td style="text-align: left;">8.9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1978 (NL AL)</td>
+<td style="text-align: left;">Phil Niekro+ (ATL)</td>
+<td style="text-align: right;">10.4</td>
+<td style="text-align: left;">Ron Guidry (NYY)</td>
+<td style="text-align: left;">9.6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1977 (NL AL)</td>
+<td style="text-align: left;">Rick Reuschel (CHC)</td>
+<td style="text-align: right;">9.6</td>
+<td style="text-align: left;">Rod Carew+ (MIN)</td>
+<td style="text-align: left;">9.7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1976 (NL AL)</td>
+<td style="text-align: left;">Joe Morgan+ (CIN)</td>
+<td style="text-align: right;">9.6</td>
+<td style="text-align: left;">Mark Fidrych (DET)</td>
+<td style="text-align: left;">9.6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1975 (NL AL)</td>
+<td style="text-align: left;">Joe Morgan+ (CIN)</td>
+<td style="text-align: right;">11.0</td>
+<td style="text-align: left;">Jim Palmer+ (BAL)</td>
+<td style="text-align: left;">8.4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1974 (NL AL)</td>
+<td style="text-align: left;">Mike Schmidt+ (PHI)</td>
+<td style="text-align: right;">9.8</td>
+<td style="text-align: left;">Gaylord Perry+ (CLE)</td>
+<td style="text-align: left;">8.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1973 (NL AL)</td>
+<td style="text-align: left;">Tom Seaver+ (NYM)</td>
+<td style="text-align: right;">11.0</td>
+<td style="text-align: left;">Bert Blyleven+ (MIN)</td>
+<td style="text-align: left;">9.8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1972 (NL AL)</td>
+<td style="text-align: left;">Steve Carlton+ (PHI)</td>
+<td style="text-align: right;">12.5</td>
+<td style="text-align: left;">Gaylord Perry+ (CLE)</td>
+<td style="text-align: left;">11</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1971 (NL AL)</td>
+<td style="text-align: left;">Fergie Jenkins+ (CHC)</td>
+<td style="text-align: right;">11.8</td>
+<td style="text-align: left;">Wilbur Wood (CHW)</td>
+<td style="text-align: left;">11</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1970 (NL AL)</td>
+<td style="text-align: left;">Bob Gibson+ (STL)</td>
+<td style="text-align: right;">10.1</td>
+<td style="text-align: left;">Carl Yastrzemski+ (BOS)</td>
+<td style="text-align: left;">9.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1969 (NL AL)</td>
+<td style="text-align: left;">Bob Gibson+ (STL)</td>
+<td style="text-align: right;">11.3</td>
+<td style="text-align: left;">Rico Petrocelli (BOS)</td>
+<td style="text-align: left;">10</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1968 (NL AL)</td>
+<td style="text-align: left;">Bob Gibson+ (STL)</td>
+<td style="text-align: right;">11.9</td>
+<td style="text-align: left;">Carl Yastrzemski+ (BOS)</td>
+<td style="text-align: left;">10.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1967 (NL AL)</td>
+<td style="text-align: left;">Ron Santo+ (CHC)</td>
+<td style="text-align: right;">9.8</td>
+<td style="text-align: left;">Carl Yastrzemski+ (BOS)</td>
+<td style="text-align: left;">12.4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1966 (NL AL)</td>
+<td style="text-align: left;">Juan Marichal+ (SFG)</td>
+<td style="text-align: right;">9.7</td>
+<td style="text-align: left;">Earl Wilson (2TM)</td>
+<td style="text-align: left;">7.7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1965 (NL AL)</td>
+<td style="text-align: left;">Willie Mays+ (SFG)</td>
+<td style="text-align: right;">11.2</td>
+<td style="text-align: left;">Sam McDowell (CLE)</td>
+<td style="text-align: left;">7.9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1964 (NL AL)</td>
+<td style="text-align: left;">Willie Mays+ (SFG)</td>
+<td style="text-align: right;">11.0</td>
+<td style="text-align: left;">Dean Chance (LAA)</td>
+<td style="text-align: left;">8.7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1963 (NL AL)</td>
+<td style="text-align: left;">Willie Mays+ (SFG)</td>
+<td style="text-align: right;">10.6</td>
+<td style="text-align: left;">Bob Allison (MIN)</td>
+<td style="text-align: left;">7.4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1962 (NL AL)</td>
+<td style="text-align: left;">Willie Mays+ (SFG)</td>
+<td style="text-align: right;">10.5</td>
+<td style="text-align: left;">Hank Aguirre (DET)</td>
+<td style="text-align: left;">6.2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1961 (NL AL)</td>
+<td style="text-align: left;">Henry Aaron+ (MLN)</td>
+<td style="text-align: right;">9.4</td>
+<td style="text-align: left;">Mickey Mantle+ (NYY)</td>
+<td style="text-align: left;">10.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1960 (NL AL)</td>
+<td style="text-align: left;">Willie Mays+ (SFG)</td>
+<td style="text-align: right;">9.5</td>
+<td style="text-align: left;">Roger Maris (NYY)</td>
+<td style="text-align: left;">7.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1959 (NL AL)</td>
+<td style="text-align: left;">Ernie Banks+ (CHC)</td>
+<td style="text-align: right;">10.2</td>
+<td style="text-align: left;">Camilo Pascual (WSH)</td>
+<td style="text-align: left;">8.6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1958 (NL AL)</td>
+<td style="text-align: left;">Willie Mays+ (SFG)</td>
+<td style="text-align: right;">10.2</td>
+<td style="text-align: left;">Mickey Mantle+ (NYY)</td>
+<td style="text-align: left;">8.7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1957 (NL AL)</td>
+<td style="text-align: left;">Willie Mays+ (NYG)</td>
+<td style="text-align: right;">8.3</td>
+<td style="text-align: left;">Mickey Mantle+ (NYY)</td>
+<td style="text-align: left;">11.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1956 (NL AL)</td>
+<td style="text-align: left;">Duke Snider+ (BRO)</td>
+<td style="text-align: right;">7.6</td>
+<td style="text-align: left;">Mickey Mantle+ (NYY)</td>
+<td style="text-align: left;">11.2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1955 (NL AL)</td>
+<td style="text-align: left;">Willie Mays+ (NYG)</td>
+<td style="text-align: right;">9.2</td>
+<td style="text-align: left;">Mickey Mantle+ (NYY)</td>
+<td style="text-align: left;">9.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1954 (NL AL)</td>
+<td style="text-align: left;">Willie Mays+ (NYG)</td>
+<td style="text-align: right;">10.4</td>
+<td style="text-align: left;">Minnie Minoso+ (CHW)</td>
+<td style="text-align: left;">8.2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1953 (NL AL)</td>
+<td style="text-align: left;">Robin Roberts+ (PHI)</td>
+<td style="text-align: right;">9.9</td>
+<td style="text-align: left;">Al Rosen (CLE)</td>
+<td style="text-align: left;">10.1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1952 (NL AL)</td>
+<td style="text-align: left;">Robin Roberts+ (PHI)</td>
+<td style="text-align: right;">8.6</td>
+<td style="text-align: left;">Bobby Shantz (PHA)</td>
+<td style="text-align: left;">9.4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1951 (NL AL)</td>
+<td style="text-align: left;">Jackie Robinson+ (BRO)</td>
+<td style="text-align: right;">9.7</td>
+<td style="text-align: left;">Ted Williams+ (BOS)</td>
+<td style="text-align: left;">7.1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1950 (NL AL)</td>
+<td style="text-align: left;">Eddie Stanky (NYG)</td>
+<td style="text-align: right;">8.2</td>
+<td style="text-align: left;">Ned Garver (SLB)</td>
+<td style="text-align: left;">8.1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1949 (NL AL)</td>
+<td style="text-align: left;">Jackie Robinson+ (BRO)</td>
+<td style="text-align: right;">9.3</td>
+<td style="text-align: left;">Ted Williams+ (BOS)</td>
+<td style="text-align: left;">9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1948 (NL AL)</td>
+<td style="text-align: left;">Stan Musial+ (STL)</td>
+<td style="text-align: right;">11.3</td>
+<td style="text-align: left;">Lou Boudreau+ (CLE)</td>
+<td style="text-align: left;">10.4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1947 (NL AL)</td>
+<td style="text-align: left;">Warren Spahn+ (BSN)</td>
+<td style="text-align: right;">9.4</td>
+<td style="text-align: left;">Ted Williams+ (BOS)</td>
+<td style="text-align: left;">9.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1946 (NL AL)</td>
+<td style="text-align: left;">Stan Musial+ (STL)</td>
+<td style="text-align: right;">9.3</td>
+<td style="text-align: left;">Ted Williams+ (BOS)</td>
+<td style="text-align: left;">10.6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1945 (NL AL)</td>
+<td style="text-align: left;">Tommy Holmes (BSN)</td>
+<td style="text-align: right;">8.4</td>
+<td style="text-align: left;">Hal Newhouser+ (DET)</td>
+<td style="text-align: left;">12.2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1944 (NL AL)</td>
+<td style="text-align: left;">Stan Musial+ (STL)</td>
+<td style="text-align: right;">8.9</td>
+<td style="text-align: left;">Dizzy Trout (DET)</td>
+<td style="text-align: left;">10.9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1943 (NL AL)</td>
+<td style="text-align: left;">Stan Musial+ (STL)</td>
+<td style="text-align: right;">9.5</td>
+<td style="text-align: left;">Lou Boudreau+ (CLE)</td>
+<td style="text-align: left;">8.1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1942 (NL AL)</td>
+<td style="text-align: left;">Mort Cooper (STL)</td>
+<td style="text-align: right;">8.3</td>
+<td style="text-align: left;">Ted Williams+ (BOS)</td>
+<td style="text-align: left;">10.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1941 (NL AL)</td>
+<td style="text-align: left;">Pete Reiser (BRO)</td>
+<td style="text-align: right;">8.0</td>
+<td style="text-align: left;">Ted Williams+ (BOS)</td>
+<td style="text-align: left;">10.4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1940 (NL AL)</td>
+<td style="text-align: left;">Claude Passeau (CHC)</td>
+<td style="text-align: right;">7.6</td>
+<td style="text-align: left;">Bob Feller+ (CLE)</td>
+<td style="text-align: left;">9.8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1939 (NL AL)</td>
+<td style="text-align: left;">Bucky Walters (CIN)</td>
+<td style="text-align: right;">9.8</td>
+<td style="text-align: left;">Bob Feller+ (CLE)</td>
+<td style="text-align: left;">9.7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1938 (NL AL)</td>
+<td style="text-align: left;">Mel Ott+ (NYG)</td>
+<td style="text-align: right;">8.9</td>
+<td style="text-align: left;">Jimmie Foxx+ (BOS)</td>
+<td style="text-align: left;">7.4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1937 (NL AL)</td>
+<td style="text-align: left;">Joe Medwick+ (STL)</td>
+<td style="text-align: right;">8.4</td>
+<td style="text-align: left;">Lefty Grove+ (BOS)</td>
+<td style="text-align: left;">9.2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1936 (NL AL)</td>
+<td style="text-align: left;">Carl Hubbell+ (NYG)</td>
+<td style="text-align: right;">10.1</td>
+<td style="text-align: left;">Lefty Grove+ (BOS)</td>
+<td style="text-align: left;">10.6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1935 (NL AL)</td>
+<td style="text-align: left;">Arky Vaughan+ (PIT)</td>
+<td style="text-align: right;">9.8</td>
+<td style="text-align: left;">Wes Ferrell (BOS)</td>
+<td style="text-align: left;">10.6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1934 (NL AL)</td>
+<td style="text-align: left;">Dizzy Dean+ (STL)</td>
+<td style="text-align: right;">9.5</td>
+<td style="text-align: left;">Lou Gehrig+ (NYY)</td>
+<td style="text-align: left;">10.1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1933 (NL AL)</td>
+<td style="text-align: left;">Carl Hubbell+ (NYG)</td>
+<td style="text-align: right;">9.0</td>
+<td style="text-align: left;">Jimmie Foxx+ (PHA)</td>
+<td style="text-align: left;">9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1932 (NL AL)</td>
+<td style="text-align: left;">Mel Ott+ (NYG)</td>
+<td style="text-align: right;">8.3</td>
+<td style="text-align: left;">Jimmie Foxx+ (PHA)</td>
+<td style="text-align: left;">10.4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1931 (NL AL)</td>
+<td style="text-align: left;">Bill Terry+ (NYG)</td>
+<td style="text-align: right;">6.6</td>
+<td style="text-align: left;">Babe Ruth+ (NYY)</td>
+<td style="text-align: left;">10.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1930 (NL AL)</td>
+<td style="text-align: left;">Bill Terry+ (NYG)</td>
+<td style="text-align: right;">7.9</td>
+<td style="text-align: left;">Babe Ruth+ (NYY)</td>
+<td style="text-align: left;">10.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1929 (NL AL)</td>
+<td style="text-align: left;">Rogers Hornsby+ (CHC)</td>
+<td style="text-align: right;">10.6</td>
+<td style="text-align: left;">Babe Ruth+ (NYY)</td>
+<td style="text-align: left;">8.1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1928 (NL AL)</td>
+<td style="text-align: left;">Dazzy Vance+ (BRO)</td>
+<td style="text-align: right;">10.3</td>
+<td style="text-align: left;">Babe Ruth+ (NYY)</td>
+<td style="text-align: left;">10.2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1927 (NL AL)</td>
+<td style="text-align: left;">Rogers Hornsby+ (NYG)</td>
+<td style="text-align: right;">10.2</td>
+<td style="text-align: left;">Babe Ruth+ (NYY)</td>
+<td style="text-align: left;">12.6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1926 (NL AL)</td>
+<td style="text-align: left;">Hal Carlson (PHI)</td>
+<td style="text-align: right;">8.7</td>
+<td style="text-align: left;">Babe Ruth+ (NYY)</td>
+<td style="text-align: left;">11.4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1925 (NL AL)</td>
+<td style="text-align: left;">Rogers Hornsby+ (STL)</td>
+<td style="text-align: right;">10.2</td>
+<td style="text-align: left;">Harry Heilmann+ (DET)</td>
+<td style="text-align: left;">7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1924 (NL AL)</td>
+<td style="text-align: left;">Rogers Hornsby+ (STL)</td>
+<td style="text-align: right;">12.1</td>
+<td style="text-align: left;">Babe Ruth+ (NYY)</td>
+<td style="text-align: left;">11.4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1923 (NL AL)</td>
+<td style="text-align: left;">Dolf Luque (CIN)</td>
+<td style="text-align: right;">10.9</td>
+<td style="text-align: left;">Babe Ruth+ (NYY)</td>
+<td style="text-align: left;">14.1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1922 (NL AL)</td>
+<td style="text-align: left;">Rogers Hornsby+ (STL)</td>
+<td style="text-align: right;">10.1</td>
+<td style="text-align: left;">Red Faber+ (CHW)</td>
+<td style="text-align: left;">9.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1921 (NL AL)</td>
+<td style="text-align: left;">Rogers Hornsby+ (STL)</td>
+<td style="text-align: right;">10.8</td>
+<td style="text-align: left;">Babe Ruth+ (NYY)</td>
+<td style="text-align: left;">12.6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1920 (NL AL)</td>
+<td style="text-align: left;">Grover Alexander+ (CHC)</td>
+<td style="text-align: right;">12.6</td>
+<td style="text-align: left;">Babe Ruth+ (NYY)</td>
+<td style="text-align: left;">11.7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1919 (NL AL)</td>
+<td style="text-align: left;">Grover Alexander+ (CHC)</td>
+<td style="text-align: right;">7.5</td>
+<td style="text-align: left;">Walter Johnson+ (WSH)</td>
+<td style="text-align: left;">10.8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1918 (NL AL)</td>
+<td style="text-align: left;">Hippo Vaughn (CHC)</td>
+<td style="text-align: right;">8.1</td>
+<td style="text-align: left;">Walter Johnson+ (WSH)</td>
+<td style="text-align: left;">11.7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1917 (NL AL)</td>
+<td style="text-align: left;">Rogers Hornsby+ (STL)</td>
+<td style="text-align: right;">9.9</td>
+<td style="text-align: left;">Eddie Cicotte (CHW)</td>
+<td style="text-align: left;">11.9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1916 (NL AL)</td>
+<td style="text-align: left;">Grover Alexander+ (PHI)</td>
+<td style="text-align: right;">12.0</td>
+<td style="text-align: left;">Walter Johnson+ (WSH)</td>
+<td style="text-align: left;">11</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1915 (NL AL FL)</td>
+<td style="text-align: left;">Grover Alexander+ (PHI)</td>
+<td style="text-align: right;">10.9</td>
+<td style="text-align: left;">Walter Johnson+ (WSH)</td>
+<td style="text-align: left;">12.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1914 (NL AL FL)</td>
+<td style="text-align: left;">Grover Alexander+ (PHI)</td>
+<td style="text-align: right;">9.2</td>
+<td style="text-align: left;">Walter Johnson+ (WSH)</td>
+<td style="text-align: left;">12.8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1913 (NL AL)</td>
+<td style="text-align: left;">Babe Adams (PIT)</td>
+<td style="text-align: right;">9.3</td>
+<td style="text-align: left;">Walter Johnson+ (WSH)</td>
+<td style="text-align: left;">16.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1912 (NL AL)</td>
+<td style="text-align: left;">Nap Rucker (BRO)</td>
+<td style="text-align: right;">8.3</td>
+<td style="text-align: left;">Walter Johnson+ (WSH)</td>
+<td style="text-align: left;">14.3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1911 (NL AL)</td>
+<td style="text-align: left;">Nap Rucker (BRO)</td>
+<td style="text-align: right;">8.7</td>
+<td style="text-align: left;">Ty Cobb+ (DET)</td>
+<td style="text-align: left;">10.7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1910 (NL AL)</td>
+<td style="text-align: left;">Christy Mathewson+ (NYG)</td>
+<td style="text-align: right;">8.9</td>
+<td style="text-align: left;">Russ Ford (NYY)</td>
+<td style="text-align: left;">11.9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1909 (NL AL)</td>
+<td style="text-align: left;">Christy Mathewson+ (NYG)</td>
+<td style="text-align: right;">10.6</td>
+<td style="text-align: left;">Ty Cobb+ (DET)</td>
+<td style="text-align: left;">9.9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1908 (NL AL)</td>
+<td style="text-align: left;">Christy Mathewson+ (NYG)</td>
+<td style="text-align: right;">11.9</td>
+<td style="text-align: left;">Ed Walsh+ (CHW)</td>
+<td style="text-align: left;">10.7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1907 (NL AL)</td>
+<td style="text-align: left;">Honus Wagner+ (PIT)</td>
+<td style="text-align: right;">9.0</td>
+<td style="text-align: left;">Ed Killian (DET)</td>
+<td style="text-align: left;">7.9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1906 (NL AL)</td>
+<td style="text-align: left;">Honus Wagner+ (PIT)</td>
+<td style="text-align: right;">9.3</td>
+<td style="text-align: left;">Nap Lajoie+ (CLE)</td>
+<td style="text-align: left;">10</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1905 (NL AL)</td>
+<td style="text-align: left;">Christy Mathewson+ (NYG)</td>
+<td style="text-align: right;">10.5</td>
+<td style="text-align: left;">Rube Waddell+ (PHA)</td>
+<td style="text-align: left;">9.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1904 (NL AL)</td>
+<td style="text-align: left;">Joe McGinnity+ (NYG)</td>
+<td style="text-align: right;">9.3</td>
+<td style="text-align: left;">Jack Chesbro+ (NYY)</td>
+<td style="text-align: left;">11.4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1903 (NL AL)</td>
+<td style="text-align: left;">Joe McGinnity+ (NYG)</td>
+<td style="text-align: right;">11.9</td>
+<td style="text-align: left;">Cy Young+ (BOS)</td>
+<td style="text-align: left;">8.1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1902 (NL AL)</td>
+<td style="text-align: left;">Jack Taylor (CHC)</td>
+<td style="text-align: right;">10.0</td>
+<td style="text-align: left;">Cy Young+ (BOS)</td>
+<td style="text-align: left;">10.1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1901 (NL AL)</td>
+<td style="text-align: left;">Christy Mathewson+ (NYG)</td>
+<td style="text-align: right;">8.8</td>
+<td style="text-align: left;">Cy Young+ (BOS)</td>
+<td style="text-align: left;">12.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1900 (NL)</td>
+<td style="text-align: left;">Cy Young+ (STL)</td>
+<td style="text-align: right;">7.2</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1899 (NL)</td>
+<td style="text-align: left;">Vic Willis+ (BSN)</td>
+<td style="text-align: right;">10.0</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1898 (NL)</td>
+<td style="text-align: left;">Kid Nichols+ (BSN)</td>
+<td style="text-align: right;">11.2</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1897 (NL)</td>
+<td style="text-align: left;">Kid Nichols+ (BSN)</td>
+<td style="text-align: right;">11.1</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1896 (NL)</td>
+<td style="text-align: left;">Cy Young+ (CLV)</td>
+<td style="text-align: right;">10.5</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1895 (NL)</td>
+<td style="text-align: left;">Cy Young+ (CLV)</td>
+<td style="text-align: right;">11.6</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1894 (NL)</td>
+<td style="text-align: left;">Amos Rusie+ (NYG)</td>
+<td style="text-align: right;">13.7</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1893 (NL)</td>
+<td style="text-align: left;">Kid Nichols+ (BSN)</td>
+<td style="text-align: right;">11.7</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1892 (NL)</td>
+<td style="text-align: left;">Cy Young+ (CLV)</td>
+<td style="text-align: right;">13.0</td>
+<td style="text-align: left;">American Association</td>
+<td style="text-align: left;">WAR</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1891 (NL AA)</td>
+<td style="text-align: left;">John Clarkson+ (BSN)</td>
+<td style="text-align: right;">9.9</td>
+<td style="text-align: left;">Sadie McMahon (BAL)</td>
+<td style="text-align: left;">9.4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1890 (NL AA PL)</td>
+<td style="text-align: left;">Kid Nichols+ (BSN)</td>
+<td style="text-align: right;">13.0</td>
+<td style="text-align: left;">Scott Stratton (LOU)</td>
+<td style="text-align: left;">10.8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1889 (NL AA)</td>
+<td style="text-align: left;">John Clarkson+ (BSN)</td>
+<td style="text-align: right;">16.2</td>
+<td style="text-align: left;">Ice Box Chamberlain (STL)</td>
+<td style="text-align: left;">9.2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1888 (NL AA)</td>
+<td style="text-align: left;">Charlie Buffinton (PHI)</td>
+<td style="text-align: right;">12.0</td>
+<td style="text-align: left;">Silver King (STL)</td>
+<td style="text-align: left;">16</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1887 (NL AA)</td>
+<td style="text-align: left;">John Clarkson+ (CHC)</td>
+<td style="text-align: right;">15.0</td>
+<td style="text-align: left;">Matt Kilroy (BAL)</td>
+<td style="text-align: left;">12.1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1886 (NL AA)</td>
+<td style="text-align: left;">Charlie Ferguson (PHI)</td>
+<td style="text-align: right;">11.7</td>
+<td style="text-align: left;">Toad Ramsey (LOU)</td>
+<td style="text-align: left;">12.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1885 (NL AA)</td>
+<td style="text-align: left;">John Clarkson+ (CHC)</td>
+<td style="text-align: right;">12.8</td>
+<td style="text-align: left;">Ed Morris (PIT)</td>
+<td style="text-align: left;">12.7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1884 (NL AA UA)</td>
+<td style="text-align: left;">Old Hoss Radbourn+ (PRO)</td>
+<td style="text-align: right;">19.4</td>
+<td style="text-align: left;">Guy Hecker (LOU)</td>
+<td style="text-align: left;">17.8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1883 (NL AA)</td>
+<td style="text-align: left;">Old Hoss Radbourn+ (PRO)</td>
+<td style="text-align: right;">14.3</td>
+<td style="text-align: left;">Tim Keefe+ (NYP)</td>
+<td style="text-align: left;">20.2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1882 (NL AA)</td>
+<td style="text-align: left;">Jim McCormick (CLV)</td>
+<td style="text-align: right;">10.9</td>
+<td style="text-align: left;">Will White (CIN)</td>
+<td style="text-align: left;">11.3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1881 (NL)</td>
+<td style="text-align: left;">Jim Whitney (BSN)</td>
+<td style="text-align: right;">8.7</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1880 (NL)</td>
+<td style="text-align: left;">Jim McCormick (CLV)</td>
+<td style="text-align: right;">10.8</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1879 (NL)</td>
+<td style="text-align: left;">Tommy Bond (BSN)</td>
+<td style="text-align: right;">14.3</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1878 (NL)</td>
+<td style="text-align: left;">Tommy Bond (BSN)</td>
+<td style="text-align: right;">13.4</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1877 (NL)</td>
+<td style="text-align: left;">Jim Devlin (LOU)</td>
+<td style="text-align: right;">13.4</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1876 (NL)</td>
+<td style="text-align: left;">Jim Devlin (LOU)</td>
+<td style="text-align: right;">18.3</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">National Association</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1875 (NA)</td>
+<td style="text-align: left;">Al Spalding+ (BOS)</td>
+<td style="text-align: right;">14.2</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1874 (NA)</td>
+<td style="text-align: left;">Bobby Mathews (NYU)</td>
+<td style="text-align: right;">13.7</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1873 (NA)</td>
+<td style="text-align: left;">Bobby Mathews (NYU)</td>
+<td style="text-align: right;">9.6</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1872 (NA)</td>
+<td style="text-align: left;">Al Spalding+ (BOS)</td>
+<td style="text-align: right;">12.5</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1871 (NA)</td>
+<td style="text-align: left;">George Zettlein (CHI)</td>
+<td style="text-align: right;">4.5</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
 </div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
